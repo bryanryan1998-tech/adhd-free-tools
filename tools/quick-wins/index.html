@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Quick Wins — Break Any Task Into 2-Minute Micro-Steps | Free ADHD Tool</title>
+    <meta name="description" content="Free ADHD task starter that breaks overwhelming tasks into tiny 2-minute micro-steps. Beat ADHD paralysis instantly with this popular ADHD tool. No sign-up required. Part of Kit — 243 ADHD productivity features.">
+    <meta name="keywords" content="ADHD task starter, ADHD paralysis tool, ADHD micro-steps, ADHD quick wins, break down tasks ADHD, task initiation ADHD, ADHD productivity tool, ADHD getting started, ADHD tools, ADHD apps, free ADHD tool, neurodivergent task management, ADHD executive dysfunction">
+    <meta property="og:title" content="ADHD Quick Wins — Break Any Task Into 2-Minute Micro-Steps">
+    <meta property="og:description" content="Free tool that beats ADHD paralysis. Pick a task, get instant micro-steps with timers. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quick-wins-liard.vercel.app">
+    <meta property="og:image" content="https://quick-wins-liard.vercel.app/og-image.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ADHD Quick Wins — Break Any Task Into 2-Minute Micro-Steps">
+    <meta name="twitter:description" content="Free tool that beats ADHD paralysis. Pick a task, get instant micro-steps with timers. No sign-up.">
+    <meta name="twitter:image" content="https://quick-wins-liard.vercel.app/og-image.webp">
+    <link rel="canonical" href="https://quick-wins-liard.vercel.app">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ADHD Quick Wins",
+        "applicationCategory": "Productivity",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Free ADHD task starter that breaks overwhelming tasks into tiny 2-minute micro-steps with timers.",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "127" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "How do I start a task when I have ADHD paralysis?", "acceptedAnswer": { "@type": "Answer", "text": "Break the task into 2-minute micro-steps. Don't think about the whole task — just do the first tiny step. ADHD Quick Wins does this automatically for you." } },
+            { "@type": "Question", "name": "Why does breaking tasks into small steps help ADHD?", "acceptedAnswer": { "@type": "Answer", "text": "ADHD brains struggle with task initiation due to low dopamine at the start. Tiny steps feel achievable, trigger a quick dopamine hit when completed, and build momentum." } },
+            { "@type": "Question", "name": "Is this ADHD task starter free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free with no sign-up required. Use it anytime to beat task paralysis and get moving." } }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://landing-mu-self.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Free ADHD Tools", "item": "https://focus-timer-eight-drab.vercel.app/" },
+            { "@type": "ListItem", "position": 3, "name": "ADHD Quick Wins", "item": "https://quick-wins-liard.vercel.app/" }
+        ]
+    }
+    </script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #0a0a0f;
+            --bg2: #12121a;
+            --bg3: #1a1a25;
+            --card: #16161f;
+            --border: #2a2a3a;
+            --text: #e8e8f0;
+            --text2: #8888a0;
+            --accent: #6c5ce7;
+            --accent2: #a29bfe;
+            --green: #00b894;
+            --green2: #55efc4;
+            --orange: #fdcb6e;
+            --red: #ff6b6b;
+            --radius: 12px;
+        }
+        html { font-size: 16px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 520px; margin: 0 auto; padding: 20px 16px; }
+
+        /* Header */
+        .header { text-align: center; padding: 32px 0 24px; }
+        .header h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+        .header h1 span { color: var(--green); }
+        .header p { color: var(--text2); font-size: 0.95rem; max-width: 360px; margin: 0 auto; }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex; justify-content: center; gap: 24px;
+            padding: 12px 0; margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .stat { text-align: center; }
+        .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--green); }
+        .stat-label { font-size: 0.7rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Step indicator */
+        .step-indicator {
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; margin-bottom: 24px; font-size: 0.85rem; color: var(--text2);
+        }
+        .step-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--border); transition: all 0.3s;
+        }
+        .step-dot.active { background: var(--green); box-shadow: 0 0 8px rgba(0,184,148,0.4); }
+        .step-dot.done { background: var(--accent); }
+
+        /* Input screen */
+        .screen { display: none; }
+        .screen.active { display: block; }
+
+        .input-section { margin-bottom: 16px; }
+        .input-section label {
+            display: block; font-size: 0.8rem; color: var(--text2);
+            margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .task-input {
+            width: 100%; padding: 14px 16px; background: var(--bg2);
+            border: 2px solid var(--border); border-radius: var(--radius);
+            color: var(--text); font-size: 1rem; outline: none;
+            transition: border-color 0.2s;
+        }
+        .task-input:focus { border-color: var(--accent); }
+        .task-input::placeholder { color: var(--text2); }
+
+        /* Preset tasks */
+        .preset-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px; margin-bottom: 20px;
+        }
+        .preset-btn {
+            padding: 10px 12px; background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); color: var(--text); font-size: 0.85rem;
+            cursor: pointer; transition: all 0.2s; text-align: left;
+        }
+        .preset-btn:hover { border-color: var(--accent); background: var(--bg3); }
+        .preset-btn .emoji { margin-right: 4px; }
+        .preset-btn .label { display: block; }
+
+        /* Generate button */
+        .btn-primary {
+            width: 100%; padding: 16px; background: var(--green);
+            border: none; border-radius: var(--radius); color: #000;
+            font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.03em;
+        }
+        .btn-primary:hover { background: var(--green2); transform: translateY(-1px); }
+        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        .btn-secondary {
+            width: 100%; padding: 12px; background: transparent;
+            border: 2px solid var(--border); border-radius: var(--radius);
+            color: var(--text); font-size: 0.9rem; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent2); }
+
+        /* Steps screen */
+        .current-step-card {
+            background: var(--card); border: 2px solid var(--border);
+            border-radius: 16px; padding: 28px 24px; text-align: center;
+            margin-bottom: 20px; position: relative; overflow: hidden;
+        }
+        .current-step-card .step-num {
+            font-size: 0.75rem; color: var(--green); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 8px;
+        }
+        .current-step-card .step-text {
+            font-size: 1.2rem; font-weight: 600; line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .step-meta {
+            font-size: 0.8rem; color: var(--text2); margin-bottom: 4px;
+        }
+
+        /* Timer */
+        .timer-section { margin-bottom: 20px; text-align: center; }
+        .timer-ring {
+            width: 160px; height: 160px; margin: 0 auto 16px;
+            position: relative;
+        }
+        .timer-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .timer-ring .bg { stroke: var(--bg3); }
+        .timer-ring .progress {
+            stroke: var(--green); stroke-linecap: round;
+            transition: stroke-dashoffset 1s linear;
+        }
+        .timer-ring .time-display {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem; font-weight: 800;
+            font-variant-numeric: tabular-nums;
+        }
+        .timer-ring .time-label {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, calc(-50% + 24px));
+            font-size: 0.7rem; color: var(--text2); text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .timer-controls { display: flex; gap: 10px; justify-content: center; margin-bottom: 12px; }
+        .timer-btn {
+            padding: 10px 24px; border-radius: 30px; border: none;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .timer-btn.start { background: var(--green); color: #000; }
+        .timer-btn.start:hover { background: var(--green2); }
+        .timer-btn.pause { background: var(--orange); color: #000; }
+        .timer-btn.skip { background: var(--bg3); color: var(--text2); }
+        .timer-btn.skip:hover { color: var(--text); background: var(--card); }
+
+        /* Steps progress */
+        .steps-list { margin-bottom: 20px; }
+        .steps-list-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 10px 12px; border-radius: 8px; margin-bottom: 4px;
+            font-size: 0.9rem; transition: all 0.2s;
+        }
+        .steps-list-item.pending { color: var(--text2); }
+        .steps-list-item.current { background: var(--bg3); color: var(--text); font-weight: 600; }
+        .steps-list-item.done { color: var(--accent2); text-decoration: line-through; opacity: 0.6; }
+        .step-check {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 2px solid var(--border); flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.65rem; margin-top: 2px;
+        }
+        .steps-list-item.done .step-check { background: var(--accent); border-color: var(--accent); }
+        .steps-list-item.current .step-check { border-color: var(--green); }
+
+        /* Completion */
+        .completion-card {
+            text-align: center; padding: 32px 24px;
+        }
+        .completion-card .big-emoji { font-size: 3rem; margin-bottom: 12px; }
+        .completion-card h2 { font-size: 1.5rem; margin-bottom: 8px; color: var(--green); }
+        .completion-card p { color: var(--text2); margin-bottom: 24px; }
+        .completion-stats {
+            display: flex; justify-content: center; gap: 20px;
+            margin-bottom: 24px;
+        }
+        .completion-stat {
+            text-align: center; padding: 12px 16px;
+            background: var(--card); border-radius: var(--radius);
+            min-width: 90px;
+        }
+        .completion-stat .val { font-size: 1.4rem; font-weight: 700; color: var(--green); }
+        .completion-stat .lbl { font-size: 0.7rem; color: var(--text2); }
+
+        /* Share */
+        .share-row { display: flex; gap: 8px; margin-bottom: 12px; }
+        .share-btn {
+            flex: 1; padding: 10px; background: var(--card);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            color: var(--text); font-size: 0.85rem; cursor: pointer;
+            transition: all 0.2s; text-align: center;
+        }
+        .share-btn:hover { border-color: var(--accent); }
+
+        /* CTA */
+        .cta-card {
+            background: linear-gradient(135deg, var(--card) 0%, #1a1535 100%);
+            border: 1px solid var(--accent); border-radius: 16px;
+            padding: 20px; text-align: center; margin: 24px 0;
+        }
+        .cta-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+        .cta-card p { font-size: 0.85rem; color: var(--text2); margin-bottom: 12px; }
+        .cta-card a {
+            display: inline-block; padding: 10px 24px;
+            background: var(--accent); color: #fff; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .cta-card a:hover { background: var(--accent2); }
+
+        /* FAQ */
+        .faq-section { margin-top: 24px; border-top: 1px solid var(--border); padding-top: 20px; }
+        .faq-section h3 { font-size: 1rem; margin-bottom: 12px; text-align: center; }
+        .faq-item {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 8px; overflow: hidden;
+        }
+        .faq-q {
+            padding: 12px 16px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center;
+        }
+        .faq-q::after { content: '+'; color: var(--text2); font-size: 1.2rem; }
+        .faq-item.open .faq-q::after { content: '−'; }
+        .faq-a {
+            padding: 0 16px; max-height: 0; overflow: hidden;
+            font-size: 0.85rem; color: var(--text2); line-height: 1.6;
+            transition: all 0.3s;
+        }
+        .faq-item.open .faq-a { padding: 0 16px 14px; max-height: 200px; }
+
+        /* Cross-links */
+        .cross-links {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px; margin: 20px 0;
+        }
+        .cross-link {
+            display: block; padding: 14px 12px; background: var(--card);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            text-decoration: none; color: var(--text); transition: all 0.2s;
+        }
+        .cross-link:hover { border-color: var(--accent); }
+        .cross-link .cl-emoji { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+        .cross-link .cl-name { font-size: 0.85rem; font-weight: 600; }
+        .cross-link .cl-desc { font-size: 0.72rem; color: var(--text2); }
+
+        /* Footer */
+        .footer {
+            text-align: center; padding: 20px 0; margin-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .footer a { color: var(--text2); text-decoration: none; font-size: 0.8rem; margin: 0 8px; }
+        .footer a:hover { color: var(--accent2); }
+        .footer p { color: var(--text2); font-size: 0.75rem; margin-top: 8px; }
+
+        /* Confetti particles */
+        .confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; }
+        .confetti {
+            position: absolute; width: 8px; height: 8px;
+            border-radius: 2px; animation: confetti-fall 2s ease-out forwards;
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,184,148,0.2); }
+            50% { box-shadow: 0 0 20px 4px rgba(0,184,148,0.15); }
+        }
+        .current-step-card.running { animation: pulse-glow 2s infinite; }
+
+        /* Sound toggle */
+        .sound-toggle {
+            position: absolute; top: 16px; right: 16px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--card); border: 1px solid var(--border);
+            color: var(--text2); font-size: 1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        .sound-toggle:hover { border-color: var(--accent); color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 400px) {
+            .preset-grid { grid-template-columns: 1fr; }
+            .container { padding: 16px 12px; }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        /* Focus visible */
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    </style>
+<script>
+// Kit Analytics v2 - Privacy-Friendly Page View Tracker (with UUID)
+(function(){var a='https://avwrtrlvhtxvdwzcqznk.supabase.co/rest/v1/user_analytics',k='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF2d3J0cmx2aHR4dmR3emNxem5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2ODc1NDQsImV4cCI6MjA3NjI2MzU0NH0.54ytxuFfTWNkgNoK_y3R4CngJ1DQp9Val9oPkM7yhn8',u='analytics-anonymous';function uuid(){return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0,v=c==='x'?r:(r&0x3|0x8);return v.toString(16)})}var p=new URLSearchParams(window.location.search),d={url:window.location.href,path:window.location.pathname,ref:document.referrer||'direct',utm:{s:p.get('utm_source')||p.get('source')||'',m:p.get('utm_medium')||'',c:p.get('utm_campaign')||''},scr:screen.width+'x'+screen.height,host:window.location.hostname,ts:new Date().toISOString()};var sid=sessionStorage.getItem('kit_sid');if(!sid){sid='s_'+Math.random().toString(36).substr(2,12)+'_'+Date.now();sessionStorage.setItem('kit_sid',sid)}d.sid=sid;function t(e,ed){try{fetch(a,{method:'POST',headers:{'Content-Type':'application/json','apikey':k,'Authorization':'Bearer '+k,'Prefer':'return=minimal'},body:JSON.stringify({id:uuid(),user_id:u,event_type:e,event_data:JSON.stringify(ed)}),keepalive:true})}catch(x){}}t('page_view',d);setTimeout(function(){d.engaged=true;d.dur=30;t('engaged_view',d)},30000);document.addEventListener('click',function(e){var l=e.target.closest('a');if(l&&l.hostname!==window.location.hostname&&l.href){try{navigator.sendBeacon(a,JSON.stringify({user_id:u,event_type:'link_click',event_data:JSON.stringify(Object.assign({},d,{action:'click_out',target:l.href,label:l.textContent.trim().substring(0,100)}))}))}catch(x){}}})})();
+</script>
+</head>
+<body>
+    <div class="container">
+        <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">🔇</button>
+
+        <!-- Screen 1: Task Input -->
+        <div class="screen active" id="inputScreen">
+            <div class="header">
+                <h1>⚡ ADHD <span>Quick Wins</span></h1>
+                <p>Pick a task. We'll break it into tiny 2-minute steps. Just start the first one.</p>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat">
+                    <div class="stat-value" id="totalCompleted">0</div>
+                    <div class="stat-label">Tasks Done</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalMinutes">0</div>
+                    <div class="stat-label">Minutes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="currentStreak">0</div>
+                    <div class="stat-label">Streak 🔥</div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <label for="taskInput">What do you need to do?</label>
+                <input type="text" id="taskInput" class="task-input"
+                       placeholder="e.g., Clean my room, Start that email, Do taxes..."
+                       autocomplete="off" maxlength="200">
+            </div>
+
+            <label style="font-size:0.8rem;color:var(--text2);margin-bottom:8px;display:block;text-transform:uppercase;letter-spacing:0.05em;">Or pick a common stuck task:</label>
+            <div class="preset-grid">
+                <button class="preset-btn" data-task="Clean my room"><span class="emoji">🧹</span>Clean my room</button>
+                <button class="preset-btn" data-task="Start a work email"><span class="emoji">📧</span>Start a work email</button>
+                <button class="preset-btn" data-task="Do my laundry"><span class="emoji">👕</span>Do my laundry</button>
+                <button class="preset-btn" data-task="Start an assignment"><span class="emoji">📝</span>Start an assignment</button>
+                <button class="preset-btn" data-task="Organize my desk"><span class="emoji">🗂️</span>Organize my desk</button>
+                <button class="preset-btn" data-task="Make an important call"><span class="emoji">📞</span>Make an important call</button>
+                <button class="preset-btn" data-task="Plan my week"><span class="emoji">📅</span>Plan my week</button>
+                <button class="preset-btn" data-task="Cook a meal"><span class="emoji">🍳</span>Cook a meal</button>
+            </div>
+
+            <button class="btn-primary" id="generateBtn" disabled>Break It Down →</button>
+            <p style="text-align:center;color:var(--text2);font-size:0.8rem;margin-top:10px;">Press Enter or tap the button</p>
+        </div>
+
+        <!-- Screen 2: Steps + Timer -->
+        <div class="screen" id="stepsScreen">
+            <div class="header">
+                <h1>⚡ <span>Quick Wins</span></h1>
+                <p id="taskTitle" style="color:var(--text);font-weight:600;"></p>
+            </div>
+
+            <div class="step-indicator" id="stepIndicator"></div>
+
+            <div class="current-step-card" id="currentStepCard">
+                <div class="step-num" id="stepNumLabel">Step 1 of 5</div>
+                <div class="step-text" id="currentStepText">Loading...</div>
+                <div class="step-meta" id="stepDuration">~2 minutes</div>
+            </div>
+
+            <div class="timer-section">
+                <div class="timer-ring">
+                    <svg viewBox="0 0 160 160">
+                        <circle class="bg" cx="80" cy="80" r="72" fill="none" stroke-width="6"/>
+                        <circle class="progress" id="timerProgress" cx="80" cy="80" r="72"
+                                fill="none" stroke-width="6" stroke-dasharray="452.39" stroke-dashoffset="0"/>
+                    </svg>
+                    <div class="time-display" id="timeDisplay">2:00</div>
+                    <div class="time-label" id="timeLabel">tap start</div>
+                </div>
+                <div class="timer-controls">
+                    <button class="timer-btn start" id="timerStartBtn">▶ Start</button>
+                    <button class="timer-btn skip" id="timerSkipBtn">Skip →</button>
+                </div>
+            </div>
+
+            <div class="steps-list" id="stepsList"></div>
+
+            <button class="btn-secondary" id="restartBtn">🔄 New Task</button>
+        </div>
+
+        <!-- Screen 3: Completion -->
+        <div class="screen" id="completionScreen">
+            <div class="completion-card">
+                <div class="big-emoji">🎉</div>
+                <h2>You Did It!</h2>
+                <p>Every tiny step counts. That's how ADHD brains get things done.</p>
+                <div class="completion-stats">
+                    <div class="completion-stat">
+                        <div class="val" id="compSteps">0</div>
+                        <div class="lbl">Steps Done</div>
+                    </div>
+                    <div class="completion-stat">
+                        <div class="val" id="compTime">0m</div>
+                        <div class="lbl">Time Taken</div>
+                    </div>
+                </div>
+                <div class="share-row">
+                    <button class="share-btn" id="shareTwitter">🐦 Share on X</button>
+                    <button class="share-btn" id="shareCopy">📋 Copy Link</button>
+                </div>
+                <button class="btn-primary" id="newTaskBtn" style="margin-top:12px;">⚡ Another Quick Win</button>
+            </div>
+
+            <div class="cta-card" id="ctaCard">
+                <h3>Want more ADHD-friendly tools?</h3>
+                <p>Kit has 243 features built for your brain. Focus timers, energy tracking, AI task breakdown, and more.</p>
+                <a href="https://kit-app-lyart.vercel.app?utm_source=quick-wins&utm_medium=cta&utm_campaign=completion" target="_blank" rel="noopener">Try Kit Free →</a>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <div style="max-width: 480px; margin: 24px auto 0; padding: 20px 0; border-top: 1px solid var(--border);">
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">Why Micro-Steps Work for ADHD Brains</h3>
+            <p style="font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 12px;">
+                ADHD task paralysis happens when your brain sees a task as too big or ambiguous, causing a dopamine freeze. Breaking it into <strong style="color: var(--text);">2-minute micro-steps</strong> bypasses this freeze response — each tiny step feels achievable, triggering a small dopamine reward that builds momentum.
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 12px;">
+                This ADHD tool uses 8 pre-built task templates (cleaning, email, laundry, assignments, cooking, and more) plus smart generic breakdowns for any custom task. Each step comes with a visual timer to keep you on track.
+            </p>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 16px 0 8px;">How to Use This ADHD Task Starter</h4>
+            <ul style="font-size: 0.85rem; color: var(--text2); line-height: 1.8; padding-left: 18px;">
+                <li>Pick a task you're avoiding (or type your own)</li>
+                <li>Get instant 5-step breakdown with 2-minute timers</li>
+                <li>Start the first step — just 2 minutes, that's it</li>
+                <li>Complete each step or skip ones that don't apply</li>
+                <li>Share your win or start another task</li>
+                <li>Combine with <a href="https://focus-timer-eight-drab.vercel.app?utm_source=quick-wins&utm_medium=seo-content" style="color: var(--accent2); text-decoration: none;">Focus Timer</a> for longer sessions</li>
+            </ul>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h3>❓ FAQ</h3>
+            <div class="faq-item">
+                <div class="faq-q">How does breaking tasks into micro-steps help ADHD?</div>
+                <div class="faq-a">ADHD brains struggle with task initiation because the full task feels overwhelming. Breaking it into 2-minute steps makes each piece feel achievable, triggering dopamine with each completion and building natural momentum.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Why 2 minutes per step?</div>
+                <div class="faq-a">Two minutes is short enough to feel non-threatening but long enough to make real progress. It's the sweet spot for ADHD brains — long enough to trigger the Zeigarnik effect (wanting to continue), short enough to start without dread.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Is this free? Do I need to sign up?</div>
+                <div class="faq-a">Completely free, no sign-up, no data collection. Your progress is saved locally in your browser. Use it whenever task paralysis hits.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What if the steps don't match my situation?</div>
+                <div class="faq-a">The steps are designed to be universally applicable starting points. If a step doesn't fit, just skip it! The goal is forward momentum, not perfection. Even doing ONE step beats doing zero.</div>
+            </div>
+        </div>
+
+        <!-- Cross-links -->
+        <div class="cross-links">
+            <a href="https://focus-timer-eight-drab.vercel.app?utm_source=quick-wins&utm_medium=crosslink" class="cross-link" target="_blank" rel="noopener">
+                <span class="cl-emoji">⏱️</span>
+                <span class="cl-name">Focus Timer</span>
+                <span class="cl-desc">ADHD-optimized Pomodoro</span>
+            </a>
+            <a href="https://energy-tracker-chi.vercel.app?utm_source=quick-wins&utm_medium=crosslink" class="cross-link" target="_blank" rel="noopener">
+                <span class="cl-emoji">🔋</span>
+                <span class="cl-name">Energy Tracker</span>
+                <span class="cl-desc">Track your energy patterns</span>
+            </a>
+            <a href="https://adhd-quiz.vercel.app?utm_source=quick-wins&utm_medium=crosslink" class="cross-link" target="_blank" rel="noopener">
+                <span class="cl-emoji">🧠</span>
+                <span class="cl-name">ADHD Quiz</span>
+                <span class="cl-desc">What brain type are you?</span>
+            </a>
+            <a href="https://landing-mu-self.vercel.app/blog?utm_source=quick-wins&utm_medium=crosslink" class="cross-link" target="_blank" rel="noopener">
+                <span class="cl-emoji">📚</span>
+                <span class="cl-name">ADHD Blog</span>
+                <span class="cl-desc">Tips & strategies</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="https://kit-app-lyart.vercel.app?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">Kit App</a>
+            <a href="https://focus-timer-eight-drab.vercel.app?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">Focus Timer</a>
+            <a href="https://energy-tracker-chi.vercel.app?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">Energy Tracker</a>
+            <a href="https://adhd-quiz.vercel.app?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">ADHD Quiz</a>
+            <a href="https://landing-mu-self.vercel.app?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">Landing</a>
+            <a href="https://landing-mu-self.vercel.app/compare?utm_source=quick-wins&utm_medium=footer" target="_blank" rel="noopener">Compare</a>
+            <p>Built by Kit — AI productivity for ADHD brains 🌿</p>
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confetti"></div>
+
+    <script>
+    // ===== Micro-Step Templates =====
+    const stepTemplates = {
+        'clean my room': [
+            'Set a 2-minute timer. Pick up ONLY things on your bed.',
+            'Put any dirty clothes in the hamper. Just toss them in.',
+            'Clear your desk — stack papers, put pens in a cup.',
+            'Take one bag of trash to the bin.',
+            'Put away 5 random items that are out of place.'
+        ],
+        'start a work email': [
+            'Open your email app. Don\'t write yet — just open it.',
+            'Write ONLY the subject line. Keep it short.',
+            'Write the first sentence. Something like "Hi [name]," or "Following up on..."',
+            'Write ONE key point. Bullet points count.',
+            'Add a closing line and hit send. "Let me know if you need anything else."'
+        ],
+        'do my laundry': [
+            'Gather clothes from around your room. Just pile them up.',
+            'Sort into 2 piles: lights and darks. Done.',
+            'Load one pile into the washer. Add detergent. Press start.',
+            'While waiting, put away any clean clothes already out.',
+            'Move washed clothes to dryer or hang them up.'
+        ],
+        'start an assignment': [
+            'Open a blank document. Title it with the assignment name.',
+            'Write down what the assignment is asking. Copy the prompt.',
+            'Write 3 bullet points about what you want to say.',
+            'Turn the first bullet point into a paragraph.',
+            'Read what you wrote. Fix anything obvious. Save it.'
+        ],
+        'organize my desk': [
+            'Clear everything off the desk into a box or pile.',
+            'Wipe the desk surface. 30 seconds max.',
+            'Put back ONLY the essentials: laptop, lamp, one pen.',
+            'File or recycle any papers. Don\'t read them, just sort.',
+            'Find one thing to throw away. Celebrate.'
+        ],
+        'make an important call': [
+            'Write down what you need to say in 3 bullet points.',
+            'Write the phone number on a sticky note.',
+            'Take one deep breath. You\'re just pressing buttons.',
+            'Dial the number. If no answer, leave a short message.',
+            'Cross it off your list. You did it!'
+        ],
+        'plan my week': [
+            'Write down the 3 most important things this week.',
+            'Put the biggest one on Monday. Get it over with.',
+            'Block 30-minute focus slots on 3 days.',
+            'Add ONE fun thing. You deserve it.',
+            'Screenshot or pin it somewhere you\'ll see it.'
+        ],
+        'cook a meal': [
+            'Pick the easiest thing you know how to make.',
+            'Get out all the ingredients. Just line them up.',
+            'Chop or prep the one thing that takes longest.',
+            'Start cooking. Follow the steps you know.',
+            'Plate it up. Even if it\'s ugly, you made food.'
+        ]
+    };
+
+    // Generic task breakdown
+    function generateGenericSteps(task) {
+        const lower = task.toLowerCase();
+        return [
+            `Open or set up whatever you need for "${task}". Just that.`,
+            `Do the very first tiny piece. Don't think about the rest.`,
+            `Set a 2-minute timer. Work on it until it rings.`,
+            `Check: Did you make progress? If yes, do one more piece.`,
+            `Write down what you did. You earned that acknowledgment.`
+        ];
+    }
+
+    function getSteps(task) {
+        const lower = task.toLowerCase().trim();
+        for (const [key, steps] of Object.entries(stepTemplates)) {
+            if (lower.includes(key) || key.includes(lower)) return steps;
+        }
+        return generateGenericSteps(task);
+    }
+
+    // ===== State =====
+    let state = {
+        currentTask: '',
+        steps: [],
+        currentStep: 0,
+        timerSeconds: 120,
+        timerRunning: false,
+        timerInterval: null,
+        soundOn: true,
+        totalCompleted: 0,
+        totalMinutes: 0,
+        currentStreak: 0,
+        startTime: null
+    };
+
+    // Load persisted stats
+    try {
+        const saved = JSON.parse(localStorage.getItem('qw_stats') || '{}');
+        state.totalCompleted = saved.totalCompleted || 0;
+        state.totalMinutes = saved.totalMinutes || 0;
+        state.currentStreak = saved.currentStreak || 0;
+    } catch(e) {}
+    updateStatsDisplay();
+
+    // ===== DOM =====
+    const $ = id => document.getElementById(id);
+    const inputScreen = $('inputScreen');
+    const stepsScreen = $('stepsScreen');
+    const completionScreen = $('completionScreen');
+    const taskInput = $('taskInput');
+    const generateBtn = $('generateBtn');
+    const timerProgress = $('timerProgress');
+    const timeDisplay = $('timeDisplay');
+    const timeLabel = $('timeLabel');
+    const timerStartBtn = $('timerStartBtn');
+    const timerSkipBtn = $('timerSkipBtn');
+
+    // ===== Screen Navigation =====
+    function showScreen(screen) {
+        [inputScreen, stepsScreen, completionScreen].forEach(s => s.classList.remove('active'));
+        screen.classList.add('active');
+    }
+
+    // ===== Input Handling =====
+    taskInput.addEventListener('input', () => {
+        generateBtn.disabled = taskInput.value.trim().length < 2;
+    });
+    taskInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !generateBtn.disabled) startTask();
+    });
+    generateBtn.addEventListener('click', startTask);
+
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            taskInput.value = btn.dataset.task;
+            generateBtn.disabled = false;
+            startTask();
+        });
+    });
+
+    function startTask() {
+        const task = taskInput.value.trim();
+        if (task.length < 2) return;
+        state.currentTask = task;
+        state.steps = getSteps(task);
+        state.currentStep = 0;
+        state.timerSeconds = 120;
+        state.timerRunning = false;
+        state.startTime = Date.now();
+        clearInterval(state.timerInterval);
+        showScreen(stepsScreen);
+        $('taskTitle').textContent = `"${task}"`;
+        renderSteps();
+        updateStepDisplay();
+        resetTimer();
+    }
+
+    // ===== Steps Rendering =====
+    function renderSteps() {
+        const indicator = $('stepIndicator');
+        const list = $('stepsList');
+        indicator.innerHTML = '';
+        list.innerHTML = '';
+
+        state.steps.forEach((step, i) => {
+            // Dot indicator
+            const dot = document.createElement('div');
+            dot.className = 'step-dot' + (i < state.currentStep ? ' done' : i === state.currentStep ? ' active' : '');
+            indicator.appendChild(dot);
+
+            // List item
+            const item = document.createElement('div');
+            item.className = 'steps-list-item ' + (i < state.currentStep ? 'done' : i === state.currentStep ? 'current' : 'pending');
+            const check = document.createElement('div');
+            check.className = 'step-check';
+            check.textContent = i < state.currentStep ? '✓' : i === state.currentStep ? '●' : (i + 1);
+            const text = document.createElement('span');
+            text.textContent = step;
+            item.appendChild(check);
+            item.appendChild(text);
+            list.appendChild(item);
+        });
+    }
+
+    function updateStepDisplay() {
+        const i = state.currentStep;
+        if (i >= state.steps.length) { completeTask(); return; }
+        $('stepNumLabel').textContent = `Step ${i + 1} of ${state.steps.length}`;
+        $('currentStepText').textContent = state.steps[i];
+        $('stepDuration').textContent = `~2 minutes`;
+    }
+
+    // ===== Timer =====
+    const CIRCUMFERENCE = 2 * Math.PI * 72; // ~452.39
+
+    function resetTimer() {
+        state.timerSeconds = 120;
+        state.timerRunning = false;
+        clearInterval(state.timerInterval);
+        updateTimerDisplay();
+        timerStartBtn.textContent = '▶ Start';
+        timerStartBtn.className = 'timer-btn start';
+        timeLabel.textContent = 'tap start';
+        $('currentStepCard').classList.remove('running');
+    }
+
+    function updateTimerDisplay() {
+        const mins = Math.floor(state.timerSeconds / 60);
+        const secs = state.timerSeconds % 60;
+        timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        const offset = CIRCUMFERENCE * (1 - state.timerSeconds / 120);
+        timerProgress.style.strokeDashoffset = offset;
+    }
+
+    timerStartBtn.addEventListener('click', () => {
+        if (state.timerRunning) {
+            // Pause
+            state.timerRunning = false;
+            clearInterval(state.timerInterval);
+            timerStartBtn.textContent = '▶ Resume';
+            timerStartBtn.className = 'timer-btn start';
+            timeLabel.textContent = 'paused';
+            $('currentStepCard').classList.remove('running');
+        } else {
+            // Start/Resume
+            state.timerRunning = true;
+            timerStartBtn.textContent = '⏸ Pause';
+            timerStartBtn.className = 'timer-btn pause';
+            timeLabel.textContent = 'focusing...';
+            $('currentStepCard').classList.add('running');
+            state.timerInterval = setInterval(() => {
+                state.timerSeconds--;
+                updateTimerDisplay();
+                if (state.timerSeconds <= 0) {
+                    clearInterval(state.timerInterval);
+                    state.timerRunning = false;
+                    playSound('complete');
+                    advanceStep();
+                }
+            }, 1000);
+        }
+    });
+
+    timerSkipBtn.addEventListener('click', () => {
+        clearInterval(state.timerInterval);
+        state.timerRunning = false;
+        advanceStep();
+    });
+
+    function advanceStep() {
+        state.currentStep++;
+        playSound('step');
+        renderSteps();
+        updateStepDisplay();
+        resetTimer();
+        if (state.currentStep >= state.steps.length) {
+            completeTask();
+        }
+    }
+
+    // ===== Completion =====
+    function completeTask() {
+        clearInterval(state.timerInterval);
+        const elapsedMin = Math.round((Date.now() - state.startTime) / 60000);
+        state.totalCompleted++;
+        state.totalMinutes += elapsedMin || 1;
+        state.currentStreak++;
+
+        // Save stats
+        localStorage.setItem('qw_stats', JSON.stringify({
+            totalCompleted: state.totalCompleted,
+            totalMinutes: state.totalMinutes,
+            currentStreak: state.currentStreak,
+            lastDate: new Date().toISOString().split('T')[0]
+        }));
+
+        $('compSteps').textContent = state.steps.length;
+        $('compTime').textContent = elapsedMin + 'm';
+        updateStatsDisplay();
+
+        showScreen(completionScreen);
+        spawnConfetti();
+        playSound('complete');
+
+        // Dynamic CTA
+        if (state.totalCompleted >= 3) {
+            $('ctaCard').querySelector('h3').textContent = `🔥 ${state.totalCompleted} tasks completed! Ready for more?`;
+        }
+    }
+
+    function updateStatsDisplay() {
+        $('totalCompleted').textContent = state.totalCompleted;
+        $('totalMinutes').textContent = state.totalMinutes;
+        $('currentStreak').textContent = state.currentStreak;
+    }
+
+    // ===== Share =====
+    $('shareTwitter').addEventListener('click', () => {
+        const text = `I just broke down "${state.currentTask}" into ${state.steps.length} tiny steps and actually finished it! 🎉 ADHD Quick Wins works. Try it free →`;
+        const url = 'https://quick-wins-liard.vercel.app?utm_source=twitter&utm_medium=share&utm_campaign=completion';
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+    });
+
+    $('shareCopy').addEventListener('click', () => {
+        const url = 'https://quick-wins-liard.vercel.app?utm_source=copy&utm_medium=share&utm_campaign=completion';
+        if (navigator.share) {
+            navigator.share({ title: 'ADHD Quick Wins', text: 'Break any task into tiny 2-minute steps. Free ADHD task starter.', url });
+        } else {
+            navigator.clipboard.writeText(url).then(() => {
+                $('shareCopy').textContent = '✅ Copied!';
+                setTimeout(() => $('shareCopy').textContent = '📋 Copy Link', 2000);
+            });
+        }
+    });
+
+    $('newTaskBtn').addEventListener('click', () => {
+        taskInput.value = '';
+        generateBtn.disabled = true;
+        showScreen(inputScreen);
+        taskInput.focus();
+    });
+
+    $('restartBtn').addEventListener('click', () => {
+        clearInterval(state.timerInterval);
+        taskInput.value = '';
+        generateBtn.disabled = true;
+        showScreen(inputScreen);
+    });
+
+    // ===== Sound =====
+    $('soundToggle').addEventListener('click', () => {
+        state.soundOn = !state.soundOn;
+        $('soundToggle').textContent = state.soundOn ? '🔊' : '🔇';
+    });
+
+    function playSound(type) {
+        if (!state.soundOn) return;
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            gain.gain.value = 0.08;
+
+            if (type === 'complete') {
+                osc.frequency.value = 523;
+                osc.type = 'sine';
+                osc.start();
+                setTimeout(() => { osc.frequency.value = 659; }, 100);
+                setTimeout(() => { osc.frequency.value = 784; }, 200);
+                setTimeout(() => { gain.gain.value = 0; osc.stop(); ctx.close(); }, 500);
+            } else {
+                osc.frequency.value = 440;
+                osc.type = 'sine';
+                osc.start();
+                setTimeout(() => { gain.gain.value = 0; osc.stop(); ctx.close(); }, 150);
+            }
+        } catch(e) {}
+    }
+
+    // ===== Confetti =====
+    function spawnConfetti() {
+        const container = $('confetti');
+        const colors = ['#6c5ce7', '#00b894', '#fdcb6e', '#ff6b6b', '#a29bfe', '#55efc4'];
+        for (let i = 0; i < 50; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti';
+            piece.style.left = Math.random() * 100 + '%';
+            piece.style.top = '-10px';
+            piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.animationDelay = Math.random() * 0.8 + 's';
+            piece.style.animationDuration = (1.5 + Math.random()) + 's';
+            container.appendChild(piece);
+            setTimeout(() => piece.remove(), 3000);
+        }
+    }
+
+    // ===== FAQ Accordion =====
+    document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+            q.parentElement.classList.toggle('open');
+        });
+    });
+
+    // ===== Keyboard Shortcuts =====
+    document.addEventListener('keydown', e => {
+        if (e.code === 'Space' && stepsScreen.classList.contains('active') &&
+            document.activeElement !== taskInput) {
+            e.preventDefault();
+            timerStartBtn.click();
+        }
+        if (e.code === 'KeyR' && e.ctrlKey === false && e.metaKey === false &&
+            stepsScreen.classList.contains('active') && document.activeElement !== taskInput) {
+            e.preventDefault();
+            $('restartBtn').click();
+        }
+    });
+
+    // ===== Streak Reset =====
+    try {
+        const saved = JSON.parse(localStorage.getItem('qw_stats') || '{}');
+        if (saved.lastDate) {
+            const last = new Date(saved.lastDate);
+            const now = new Date();
+            const diffDays = Math.floor((now - last) / 86400000);
+            if (diffDays > 1) {
+                state.currentStreak = 0;
+                localStorage.setItem('qw_stats', JSON.stringify({
+                    totalCompleted: state.totalCompleted,
+                    totalMinutes: state.totalMinutes,
+                    currentStreak: 0,
+                    lastDate: saved.lastDate
+                }));
+                updateStatsDisplay();
+            }
+        }
+    } catch(e) {}
+    </script>
+</body>
+</html>

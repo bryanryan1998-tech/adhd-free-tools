@@ -1,0 +1,32 @@
+{
+  "name": "adhd-free-tools",
+  "version": "1.0.0",
+  "description": "Free, no-signup ADHD productivity tools — Focus Timer, Task Breakdown, Quick Wins",
+  "main": "tools/focus-timer/index.html",
+  "scripts": {
+    "serve": "python3 -m http.server 8080",
+    "open:focus": "open tools/focus-timer/index.html",
+    "open:task": "open tools/task-breakdown/index.html",
+    "open:quick": "open tools/quick-wins/index.html"
+  },
+  "keywords": [
+    "ADHD",
+    "ADHD tools",
+    "ADHD timer",
+    "focus timer",
+    "Pomodoro",
+    "task breakdown",
+    "ADHD productivity",
+    "neurodivergent",
+    "executive dysfunction",
+    "free ADHD tools",
+    "open source ADHD"
+  ],
+  "author": "Kit ADHD",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Joshckh/adhd-free-tools"
+  },
+  "homepage": "https://landing-mu-self.vercel.app"
+}

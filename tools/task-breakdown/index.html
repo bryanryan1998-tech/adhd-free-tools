@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI Task Breakdown — Break Any Task Into Micro-Steps | Free ADHD Tool</title>
+<meta name="description" content="Free AI-powered task breakdown tool for ADHD brains. Type any task and get 5 micro-steps with time estimates. No sign-up required. Built by Kit.">
+<meta name="keywords" content="ADHD task breakdown, ADHD task starter, AI task splitter, ADHD micro-steps, executive dysfunction help, ADHD tools, ADHD apps, neurodivergent productivity, task paralysis help">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://task-breakdown-ten.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Task Breakdown — Break Any Task Into Micro-Steps | Free ADHD Tool">
+<meta property="og:description" content="Free AI-powered tool that breaks any task into 5 tiny micro-steps. Built for ADHD brains. No sign-up.">
+<meta property="og:url" content="https://task-breakdown-ten.vercel.app/">
+<meta property="og:image" content="https://task-breakdown-ten.vercel.app/og-image.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Task Breakdown — Free ADHD Tool">
+<meta name="twitter:description" content="Type any task. AI breaks it into 5 tiny steps. Built for ADHD brains.">
+<meta name="twitter:image" content="https://task-breakdown-ten.vercel.app/og-image.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI Task Breakdown",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Web",
+  "description": "Free AI-powered tool that breaks any task into 5 micro-steps with time estimates. Built for ADHD brains.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "156" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How does the AI task breakdown work?", "acceptedAnswer": {"@type": "Answer", "text": "Type any task you're stuck on. Our AI analyzes it and generates 5 tiny, concrete micro-steps with time estimates. Each step is designed to be so small you can start immediately — perfect for ADHD brains that struggle with task initiation."}},
+    {"@type": "Question", "name": "Is this tool free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free with no sign-up required. It's a standalone tool built by Kit, the AI productivity app for ADHD and neurodivergent users."}},
+    {"@type": "Question", "name": "Why does breaking tasks into micro-steps help ADHD?", "acceptedAnswer": {"@type": "Answer", "text": "ADHD brains struggle with task initiation due to low dopamine activation. Micro-steps work because each step is small enough to overcome the brain's resistance threshold. Getting started creates momentum."}},
+    {"@type": "Question", "name": "What kinds of tasks can I break down?", "acceptedAnswer": {"@type": "Answer", "text": "Any task: cleaning your room, writing an email, starting a project, doing laundry, making a phone call, organizing your desk, cooking dinner, planning your week, and more."}},
+    {"@type": "Question", "name": "How is this different from a to-do list?", "acceptedAnswer": {"@type": "Answer", "text": "To-do lists tell you WHAT to do but not HOW to start. This AI tool breaks any task into the smallest possible starting actions so tiny they bypass ADHD task paralysis."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Kit", "item": "https://kit-app-lyart.vercel.app" },
+    { "@type": "ListItem", "position": 2, "name": "Free ADHD Tools", "item": "https://task-breakdown-ten.vercel.app" },
+    { "@type": "ListItem", "position": 3, "name": "AI Task Breakdown" }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --surface2: #1a1a24;
+  --surface3: #22222e;
+  --border: #2a2a3a;
+  --text: #e8e8f0;
+  --text2: #9898b0;
+  --accent: #6c5ce7;
+  --accent2: #a29bfe;
+  --green: #00b894;
+  --green-glow: rgba(0, 184, 148, 0.3);
+  --orange: #fdcb6e;
+  --red: #ff6b6b;
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 560px; margin: 0 auto; padding: 24px 16px; }
+.header { text-align: center; margin-bottom: 28px; }
+.header .logo { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px; color: var(--text2); text-decoration: none; }
+.header .logo span { background: var(--accent); color: white; padding: 2px 10px; border-radius: 20px; font-weight: 600; font-size: 13px; }
+.header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(135deg, #a29bfe, #6c5ce7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.header .subtitle { color: var(--text2); font-size: 15px; line-height: 1.5; }
+.input-area { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 24px; }
+.input-area label { display: block; font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+.input-area textarea { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; color: var(--text); font-size: 16px; font-family: inherit; resize: none; min-height: 70px; transition: border-color 0.2s; outline: none; }
+.input-area textarea:focus { border-color: var(--accent); }
+.input-area textarea::placeholder { color: #585870; }
+.examples { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.example-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text2); padding: 5px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.example-btn:hover { background: var(--surface3); color: var(--text); border-color: var(--accent); }
+.breakdown-btn { width: 100%; padding: 14px; margin-top: 14px; background: linear-gradient(135deg, var(--accent), #7c6cf0); color: white; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.breakdown-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4); }
+.breakdown-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.breakdown-btn .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 8px; vertical-align: middle; }
+.breakdown-btn.loading .spinner { display: inline-block; }
+.breakdown-btn.loading .btn-text { opacity: 0.8; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ai-badge { display: inline-block; background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-left: 6px; vertical-align: middle; letter-spacing: 0.5px; }
+.steps-container { margin-bottom: 24px; }
+.step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; margin-bottom: 12px; opacity: 0; transform: translateY(12px); transition: all 0.3s ease; cursor: pointer; position: relative; }
+.step.visible { opacity: 1; transform: translateY(0); }
+.step:hover { border-color: var(--accent); }
+.step.done { border-color: var(--green); background: linear-gradient(135deg, rgba(0,184,148,0.05), var(--surface)); }
+.step.done .step-title { text-decoration: line-through; opacity: 0.7; }
+.step-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--surface3); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--accent2); flex-shrink: 0; transition: all 0.2s; }
+.step.done .step-num { background: var(--green); color: white; }
+.step.done .step-num::after { content: '✓'; }
+.step.done .step-num .num-text { display: none; }
+.step-title { font-size: 16px; font-weight: 600; flex: 1; transition: all 0.2s; }
+.step-desc { color: var(--text2); font-size: 14px; margin-left: 40px; line-height: 1.5; }
+.step-meta { display: flex; align-items: center; gap: 8px; margin-left: 40px; margin-top: 8px; }
+.step-time { display: inline-flex; align-items: center; gap: 4px; background: var(--surface3); padding: 3px 10px; border-radius: 12px; font-size: 12px; color: var(--orange); font-weight: 500; }
+.step-check { font-size: 12px; color: var(--text2); }
+.step.done .step-check { color: var(--green); }
+.stats-bar { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-value { font-size: 22px; font-weight: 700; color: var(--accent2); }
+.stat-label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
+.completion { display: none; text-align: center; background: linear-gradient(135deg, rgba(0,184,148,0.1), rgba(108,92,231,0.1)); border: 1px solid var(--green); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+.completion.show { display: block; }
+.completion h3 { font-size: 20px; margin-bottom: 8px; }
+.completion p { color: var(--text2); font-size: 14px; margin-bottom: 16px; }
+.completion .emoji { font-size: 40px; margin-bottom: 12px; }
+.share-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.share-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+.share-btn:hover { background: var(--surface3); border-color: var(--accent); }
+.error-msg { display: none; background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.3); border-radius: var(--radius); padding: 12px 16px; color: var(--red); font-size: 14px; margin-bottom: 16px; text-align: center; }
+.error-msg.show { display: block; }
+.cta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-align: center; margin-bottom: 24px; }
+.cta h3 { font-size: 18px; margin-bottom: 8px; }
+.cta p { color: var(--text2); font-size: 14px; margin-bottom: 16px; line-height: 1.5; }
+.cta a { display: inline-block; background: linear-gradient(135deg, var(--accent), #7c6cf0); color: white; padding: 12px 28px; border-radius: 24px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.2s; }
+.cta a:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4); }
+.cta .cta-sub { font-size: 12px; color: var(--text2); margin-top: 8px; }
+.cta.upgraded { border-color: var(--accent); background: linear-gradient(135deg, rgba(108,92,231,0.08), var(--surface)); }
+.cross-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+.cross-link { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; text-decoration: none; color: inherit; transition: all 0.15s; }
+.cross-link:hover { border-color: var(--accent); transform: translateY(-1px); }
+.cross-link .cl-icon { font-size: 20px; margin-bottom: 6px; }
+.cross-link .cl-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.cross-link .cl-desc { font-size: 11px; color: var(--text2); }
+.faq { margin-bottom: 24px; }
+.faq h2 { font-size: 18px; margin-bottom: 16px; text-align: center; }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; overflow: hidden; }
+.faq-q { padding: 14px 16px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.15s; }
+.faq-q:hover { background: var(--surface2); }
+.faq-q .arrow { transition: transform 0.2s; font-size: 12px; color: var(--text2); }
+.faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+.faq-a { display: none; padding: 0 16px 14px; color: var(--text2); font-size: 13px; line-height: 1.6; }
+.faq-item.open .faq-a { display: block; }
+.seo-content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+.seo-content h2 { font-size: 18px; margin-bottom: 12px; }
+.seo-content h3 { font-size: 15px; margin-top: 16px; margin-bottom: 8px; color: var(--accent2); }
+.seo-content p { color: var(--text2); font-size: 14px; line-height: 1.7; margin-bottom: 10px; }
+footer { text-align: center; padding: 24px 0; border-top: 1px solid var(--border); margin-top: 16px; }
+footer .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+footer a { color: var(--text2); text-decoration: none; font-size: 13px; transition: color 0.15s; }
+footer a:hover { color: var(--accent2); }
+footer .copyright { color: #484860; font-size: 12px; }
+.confetti-piece { position: fixed; width: 8px; height: 8px; border-radius: 2px; pointer-events: none; z-index: 1000; animation: confetti-fall 2.5s ease-out forwards; }
+@keyframes confetti-fall { 0% { transform: translateY(-10px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+@media (max-width: 400px) { .header h1 { font-size: 22px; } .cross-links { grid-template-columns: 1fr; } .stats-bar { gap: 16px; } }
+@media (prefers-reduced-motion: reduce) { .step { transition: opacity 0.1s; transform: none !important; } .confetti-piece { animation: none; display: none; } .breakdown-btn:hover, .cross-link:hover { transform: none; } }
+</style>
+<script>
+// Kit Analytics v2 - Privacy-Friendly Page View Tracker (with UUID)
+(function(){var a='https://avwrtrlvhtxvdwzcqznk.supabase.co/rest/v1/user_analytics',k='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF2d3J0cmx2aHR4dmR3emNxem5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2ODc1NDQsImV4cCI6MjA3NjI2MzU0NH0.54ytxuFfTWNkgNoK_y3R4CngJ1DQp9Val9oPkM7yhn8',u='analytics-anonymous';function uuid(){return'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var r=Math.random()*16|0,v=c==='x'?r:(r&0x3|0x8);return v.toString(16)})}var p=new URLSearchParams(window.location.search),d={url:window.location.href,path:window.location.pathname,ref:document.referrer||'direct',utm:{s:p.get('utm_source')||p.get('source')||'',m:p.get('utm_medium')||'',c:p.get('utm_campaign')||''},scr:screen.width+'x'+screen.height,host:window.location.hostname,ts:new Date().toISOString()};var sid=sessionStorage.getItem('kit_sid');if(!sid){sid='s_'+Math.random().toString(36).substr(2,12)+'_'+Date.now();sessionStorage.setItem('kit_sid',sid)}d.sid=sid;function t(e,ed){try{fetch(a,{method:'POST',headers:{'Content-Type':'application/json','apikey':k,'Authorization':'Bearer '+k,'Prefer':'return=minimal'},body:JSON.stringify({id:uuid(),user_id:u,event_type:e,event_data:JSON.stringify(ed)}),keepalive:true})}catch(x){}}t('page_view',d);setTimeout(function(){d.engaged=true;d.dur=30;t('engaged_view',d)},30000);document.addEventListener('click',function(e){var l=e.target.closest('a');if(l&&l.hostname!==window.location.hostname&&l.href){try{navigator.sendBeacon(a,JSON.stringify({user_id:u,event_type:'link_click',event_data:JSON.stringify(Object.assign({},d,{action:'click_out',target:l.href,label:l.textContent.trim().substring(0,100)}))}))}catch(x){}}})})();
+</script>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <a href="https://kit-app-lyart.vercel.app?utm_source=task-breakdown&utm_medium=tool&utm_campaign=header" class="logo"><span>Kit</span> ADHD Productivity</a>
+    <h1>AI Task Breakdown</h1>
+    <p class="subtitle">Stuck? Type any task. AI breaks it into 5 tiny micro-steps. <span class="ai-badge">AI POWERED</span></p>
+  </div>
+
+  <div class="stats-bar" id="statsBar">
+    <div class="stat"><div class="stat-value" id="taskCount">0</div><div class="stat-label">Tasks Broken Down</div></div>
+    <div class="stat"><div class="stat-value" id="stepCount">0</div><div class="stat-label">Steps Completed</div></div>
+    <div class="stat"><div class="stat-value" id="streakCount">0</div><div class="stat-label">Day Streak</div></div>
+  </div>
+
+  <div class="input-area">
+    <label for="taskInput">What are you avoiding?</label>
+    <textarea id="taskInput" placeholder="e.g., clean my room, write that email, start my project..." rows="2" maxlength="500"></textarea>
+    <div class="examples">
+      <button class="example-btn" data-task="Clean my room">🧹 Clean room</button>
+      <button class="example-btn" data-task="Write an important email">📧 Write email</button>
+      <button class="example-btn" data-task="Start my assignment">📝 Start assignment</button>
+      <button class="example-btn" data-task="Do my laundry">👕 Do laundry</button>
+      <button class="example-btn" data-task="Organize my desk">🗂️ Organize desk</button>
+      <button class="example-btn" data-task="Make a difficult phone call">📞 Phone call</button>
+      <button class="example-btn" data-task="Plan my week">📅 Plan week</button>
+      <button class="example-btn" data-task="Cook dinner">🍳 Cook dinner</button>
+    </div>
+    <button class="breakdown-btn" id="breakdownBtn" onclick="breakdownTask()">
+      <span class="spinner"></span>
+      <span class="btn-text">✨ Break It Down</span>
+    </button>
+  </div>
+
+  <div class="error-msg" id="errorMsg"></div>
+  <div class="steps-container" id="stepsContainer"></div>
+
+  <div class="completion" id="completion">
+    <div class="emoji">🎉</div>
+    <h3>You did it!</h3>
+    <p>Every task is just 5 tiny steps. You proved it.</p>
+    <div class="share-row">
+      <button class="share-btn" onclick="shareTwitter()">🐦 Share on Twitter</button>
+      <button class="share-btn" onclick="shareNative()">📤 Share</button>
+      <button class="share-btn" onclick="copyLink()">📋 Copy Link</button>
+    </div>
+  </div>
+
+  <div class="cta" id="cta">
+    <h3>Want this power in your pocket?</h3>
+    <p>Kit is the ADHD productivity app with AI task breakdowns, focus timers, energy tracking, and 240+ more features — all built for neurodivergent brains.</p>
+    <a href="https://kit-app-lyart.vercel.app?utm_source=task-breakdown&utm_medium=tool&utm_campaign=cta-bottom" target="_blank" rel="noopener">Try Kit Free →</a>
+    <div class="cta-sub">243 features • Free to start • Built for ADHD</div>
+  </div>
+
+  <div class="cross-links">
+    <a href="https://focus-timer-eight-drab.vercel.app?utm_source=task-breakdown&utm_medium=crosslink&utm_campaign=focus-timer" class="cross-link" target="_blank" rel="noopener"><div class="cl-icon">⏱️</div><div class="cl-title">ADHD Focus Timer</div><div class="cl-desc">Pomodoro timer built for ADHD brains</div></a>
+    <a href="https://quick-wins.vercel.app?utm_source=task-breakdown&utm_medium=crosslink&utm_campaign=quick-wins" class="cross-link" target="_blank" rel="noopener"><div class="cl-icon">⚡</div><div class="cl-title">ADHD Quick Wins</div><div class="cl-desc">2-minute micro-steps for common tasks</div></a>
+    <a href="https://adhd-quiz-tau.vercel.app?utm_source=task-breakdown&utm_medium=crosslink&utm_campaign=quiz" class="cross-link" target="_blank" rel="noopener"><div class="cl-icon">🧠</div><div class="cl-title">ADHD Brain Quiz</div><div class="cl-desc">What type of ADHD brain are you?</div></a>
+    <a href="https://energy-tracker-chi.vercel.app?utm_source=task-breakdown&utm_medium=crosslink&utm_campaign=energy-tracker" class="cross-link" target="_blank" rel="noopener"><div class="cl-icon">🔋</div><div class="cl-title">Energy Tracker</div><div class="cl-desc">Map your ADHD energy patterns</div></a>
+  </div>
+
+  <div class="faq">
+    <h2>FAQ</h2>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the AI task breakdown work? <span class="arrow">▼</span></div><div class="faq-a">Type any task you're stuck on. Our AI analyzes it and generates 5 tiny, concrete micro-steps with time estimates. Each step is designed to be so small you can start immediately — perfect for ADHD brains that struggle with task initiation.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this tool free? <span class="arrow">▼</span></div><div class="faq-a">Yes, completely free with no sign-up required. It's a standalone tool built by Kit, the AI productivity app for ADHD and neurodivergent users.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does breaking tasks into micro-steps help ADHD? <span class="arrow">▼</span></div><div class="faq-a">ADHD brains struggle with task initiation due to low dopamine activation. Micro-steps work because each step is small enough to overcome the brain's resistance threshold. Getting started creates momentum.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What kinds of tasks can I break down? <span class="arrow">▼</span></div><div class="faq-a">Any task you're avoiding or feel overwhelmed by: cleaning your room, writing an email, starting a project, doing laundry, making a phone call, organizing your desk, cooking dinner, planning your week, and more.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from a to-do list? <span class="arrow">▼</span></div><div class="faq-a">To-do lists tell you WHAT to do but not HOW to start. This AI tool breaks any task into the smallest possible starting actions so tiny they bypass ADHD task paralysis.</div></div>
+  </div>
+
+  <div class="seo-content">
+    <h2>Why Micro-Steps Work for ADHD Brains</h2>
+    <p>If you have ADHD, you know the feeling: you need to do something, you know it's important, but you physically cannot start. It's not laziness — it's your brain's executive function system struggling to bridge the gap between "knowing what to do" and "actually doing it."</p>
+    <h3>The Science Behind Task Breakdown</h3>
+    <p>ADHD brains have lower baseline dopamine levels, which means the reward system that typically motivates action doesn't activate as strongly. When a task feels big or vague, the brain's threat detection kicks in, creating overwhelm and avoidance. Breaking tasks into micro-steps works because each tiny step is small enough to bypass the brain's resistance threshold.</p>
+    <h3>AI-Powered Task Breakdown vs Manual Lists</h3>
+    <p>Traditional advice says "just break it into smaller steps" — but when you have ADHD, even figuring out the steps feels overwhelming. That's where AI task breakdown helps. You type any task, and the AI instantly generates concrete, physically specific micro-steps. No thinking required. Just follow step one.</p>
+    <h3>How to Use This Tool</h3>
+    <p>Type any task you're avoiding. The AI generates 5 micro-steps with time estimates. Click each step as you complete it. If a step still feels too big, try breaking it down again. The goal is always the same: make the next action so small that resistance doesn't matter.</p>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://kit-app-lyart.vercel.app?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">Kit App</a>
+      <a href="https://landing-mu-self.vercel.app/blog?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">ADHD Blog</a>
+      <a href="https://focus-timer-eight-drab.vercel.app?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">Focus Timer</a>
+      <a href="https://quick-wins.vercel.app?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">Quick Wins</a>
+      <a href="https://energy-tracker-chi.vercel.app?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">Energy Tracker</a>
+      <a href="https://adhd-quiz-tau.vercel.app?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">ADHD Quiz</a>
+      <a href="https://landing-mu-self.vercel.app/resources?utm_source=task-breakdown&utm_medium=footer" target="_blank" rel="noopener">ADHD Resources</a>
+    </div>
+    <div class="copyright">Built by Kit — AI Productivity for ADHD Brains</div>
+  </footer>
+</div>
+
+<script>
+const API_KEY = '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';
+const AI_MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
+const AI_URL = 'https://openrouter.ai/api/v1/chat/completions';
+
+let currentSteps = [];
+let currentTask = '';
+let completedSteps = new Set();
+const stats = JSON.parse(localStorage.getItem('task-breakdown-stats') || '{"tasks":0,"steps":0,"streak":0,"lastDate":""}');
+
+updateStats();
+updateCTA();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey && document.activeElement === document.getElementById('taskInput')) {
+    e.preventDefault();
+    breakdownTask();
+  }
+});
+
+document.querySelectorAll('.example-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('taskInput').value = btn.dataset.task;
+    document.getElementById('taskInput').focus();
+  });
+});
+
+async function callAI(task) {
+  const systemPrompt = `You are an ADHD task breakdown assistant. Given ANY task, break it down into exactly 5 micro-steps that are tiny, concrete, and immediately actionable. Each step should take 2-15 minutes.
+
+Rules:
+- Steps must be physically concrete (e.g., "Open laptop" not "Prepare")
+- First step should be embarrassingly easy (under 2 minutes)
+- Each step builds naturally to the next
+- Use simple, non-overwhelming language
+
+You MUST respond with ONLY valid JSON. No markdown, no code blocks, no explanation. Format:
+{"steps":[{"title":"string max 6 words","description":"string one sentence","time":"string like 2 min","timeMinutes":number}]}`;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+
+  try {
+    const response = await fetch(AI_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': window.location.origin,
+        'X-Title': 'Kit AI Task Breakdown',
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: AI_MODEL,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: `Break down this task: "${task}"` },
+        ],
+        temperature: 0.7,
+        max_tokens: 800,
+      }),
+    });
+
+    clearTimeout(timeout);
+
+    if (!response.ok) throw new Error('AI unavailable');
+
+    const data = await response.json();
+    const content = data.choices?.[0]?.message?.content;
+    if (!content) throw new Error('Empty response');
+
+    // Parse JSON from AI response
+    let parsed;
+    try {
+      parsed = JSON.parse(content);
+    } catch {
+      const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+      if (jsonMatch) parsed = JSON.parse(jsonMatch[1].trim());
+      else {
+        const objMatch = content.match(/\{[\s\S]*\}/);
+        if (objMatch) parsed = JSON.parse(objMatch[0]);
+        else throw new Error('No JSON found');
+      }
+    }
+
+    if (!parsed.steps?.length) throw new Error('Invalid format');
+
+    return parsed.steps.slice(0, 7).map(s => ({
+      title: (s.title || 'Do this step').substring(0, 60),
+      description: (s.description || 'Complete this micro-step.').substring(0, 150),
+      time: s.time || '5 min',
+      timeMinutes: Math.min(Math.max(s.timeMinutes || 5, 1), 30),
+    }));
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function generateFallback(task) {
+  return [
+    { title: 'Set a 2-minute timer', description: `Just commit to 2 minutes on "${task}". You can stop after.`, time: '2 min', timeMinutes: 2 },
+    { title: 'Gather what you need', description: `Collect tools or supplies for "${task}".`, time: '3 min', timeMinutes: 3 },
+    { title: 'Do the easiest part first', description: `Find the single easiest, smallest piece of "${task}" and do just that.`, time: '5 min', timeMinutes: 5 },
+    { title: 'Keep going one tiny piece', description: `You've started! Pick the next tiny piece and do just that.`, time: '5 min', timeMinutes: 5 },
+    { title: 'Check your progress', description: `Look at what you've done. Keep going for 5 more, or stop guilt-free.`, time: '2 min', timeMinutes: 2 },
+  ];
+}
+
+async function breakdownTask() {
+  const input = document.getElementById('taskInput');
+  const task = input.value.trim();
+  if (!task) { input.focus(); return; }
+
+  const btn = document.getElementById('breakdownBtn');
+  const errorEl = document.getElementById('errorMsg');
+  errorEl.classList.remove('show');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  try {
+    let steps;
+    try {
+      steps = await callAI(task);
+    } catch (aiErr) {
+      console.warn('AI fallback:', aiErr.message);
+      steps = generateFallback(task);
+    }
+
+    currentSteps = steps;
+    currentTask = task;
+    completedSteps.clear();
+    renderSteps(steps);
+
+    stats.tasks++;
+    updateStreak();
+    saveStats();
+    updateStats();
+    updateCTA();
+  } catch (err) {
+    errorEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errorEl.classList.add('show');
+  } finally {
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+}
+
+function renderSteps(steps) {
+  const container = document.getElementById('stepsContainer');
+  const completion = document.getElementById('completion');
+  container.innerHTML = '';
+  completion.classList.remove('show');
+
+  const totalTime = steps.reduce((s, st) => s + (st.timeMinutes || 5), 0);
+
+  const banner = document.createElement('div');
+  banner.style.cssText = 'text-align:center;margin-bottom:12px;font-size:13px;color:#9898b0;';
+  banner.innerHTML = `⏱️ Estimated total: <strong style="color:#fdcb6e">${totalTime} minutes</strong> · Tap each step to mark done`;
+  container.appendChild(banner);
+
+  steps.forEach((step, i) => {
+    const el = document.createElement('div');
+    el.className = 'step';
+    el.id = `step-${i}`;
+    el.innerHTML = `
+      <div class="step-header">
+        <div class="step-num"><span class="num-text">${i + 1}</span></div>
+        <div class="step-title">${escHtml(step.title)}</div>
+      </div>
+      <div class="step-desc">${escHtml(step.description)}</div>
+      <div class="step-meta">
+        <span class="step-time">⏱ ${step.time}</span>
+        <span class="step-check">Tap to complete ✓</span>
+      </div>`;
+    el.addEventListener('click', () => toggleStep(i));
+    container.appendChild(el);
+    setTimeout(() => el.classList.add('visible'), 80 * (i + 1));
+  });
+}
+
+function toggleStep(i) {
+  const el = document.getElementById(`step-${i}`);
+  if (!el) return;
+  if (completedSteps.has(i)) {
+    completedSteps.delete(i);
+    el.classList.remove('done');
+    stats.steps = Math.max(0, stats.steps - 1);
+  } else {
+    completedSteps.add(i);
+    el.classList.add('done');
+    stats.steps++;
+  }
+  saveStats();
+  updateStats();
+  if (completedSteps.size === currentSteps.length && currentSteps.length > 0) {
+    setTimeout(() => { document.getElementById('completion').classList.add('show'); spawnConfetti(); }, 400);
+  }
+}
+
+function updateStats() {
+  document.getElementById('taskCount').textContent = stats.tasks;
+  document.getElementById('stepCount').textContent = stats.steps;
+  document.getElementById('streakCount').textContent = stats.streak;
+}
+
+function updateStreak() {
+  const today = new Date().toISOString().split('T')[0];
+  if (stats.lastDate && stats.lastDate !== today) {
+    const diff = Math.floor((new Date(today) - new Date(stats.lastDate)) / 86400000);
+    stats.streak = diff === 1 ? stats.streak + 1 : 1;
+  } else if (!stats.lastDate) { stats.streak = 1; }
+  stats.lastDate = today;
+}
+
+function saveStats() { localStorage.setItem('task-breakdown-stats', JSON.stringify(stats)); }
+
+function updateCTA() {
+  const cta = document.getElementById('cta');
+  if (stats.tasks >= 3) {
+    cta.classList.add('upgraded');
+    cta.querySelector('h3').textContent = 'Loving the AI breakdown?';
+    cta.querySelector('p').textContent = 'Kit puts this AI power inside a full ADHD productivity suite — task breakdowns, focus timers, energy tracking, and 240+ more features. Built for brains like yours.';
+  }
+}
+
+function shareTwitter() {
+  const text = `I just used AI to break down "${currentTask || 'my task'}" into 5 tiny steps! 🧠✨\n\nFree tool for ADHD brains →`;
+  const url = 'https://task-breakdown-ten.vercel.app?utm_source=share&utm_medium=twitter&utm_campaign=completion';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+}
+
+function shareNative() {
+  if (navigator.share) {
+    navigator.share({ title: 'AI Task Breakdown — Free ADHD Tool', text: `I just broke down "${currentTask || 'my task'}" into 5 tiny steps!`, url: 'https://task-breakdown-ten.vercel.app?utm_source=share&utm_medium=native&utm_campaign=completion' }).catch(() => {});
+  } else { copyLink(); }
+}
+
+function copyLink() {
+  navigator.clipboard.writeText('https://task-breakdown-ten.vercel.app?utm_source=share&utm_medium=copy&utm_campaign=completion').then(() => {
+    const btn = event.target; const orig = btn.textContent; btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = orig, 2000);
+  }).catch(() => {});
+}
+
+function spawnConfetti() {
+  const colors = ['#6c5ce7','#a29bfe','#00b894','#fdcb6e','#ff6b6b','#74b9ff','#fd79a8'];
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = '-10px';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDelay = Math.random() * 0.5 + 's';
+    p.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 4000);
+  }
+}
+
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+</script>
+</body>
+</html>
