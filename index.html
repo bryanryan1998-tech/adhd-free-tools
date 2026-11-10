@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#101019" />
+<title>One Step — Life Planner</title>
+<style>
+:root{color-scheme:dark;--bg:#101019;--panel:#1a1a28;--panel2:#232338;--stroke:#343449;--text:#f7f5ff;--muted:#adabc5;--purple:#8374f6;--purple2:#aa83ff;--ok:#8bd3a2;--warn:#f7c987}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#252144 0%,var(--bg) 38%);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b7aaff;outline-offset:3px}.wrap{max-width:780px;margin:auto;padding:24px 18px 100px}.eyebrow{color:#c6bcff;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}header{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:25px}h1{font-size:clamp(28px,7vw,42px);letter-spacing:-.04em;line-height:1.12;margin:7px 0 12px}h2{font-size:18px;letter-spacing:-.01em;margin:0 0 10px}p{margin:0;color:var(--muted)}.mini{font-size:13px;color:var(--muted)}.panel{background:rgba(27,27,42,.96);border:1px solid var(--stroke);border-radius:22px;padding:20px;margin-bottom:17px;box-shadow:0 12px 30px #00000012}.glass{background:linear-gradient(135deg,#252039,#1a1a2a)}.pill{border:1px solid #554b8c;border-radius:999px;color:#d9d0ff;background:#2b2648;font-size:12px;font-weight:700;padding:5px 10px;white-space:nowrap}.count{font-variant-numeric:tabular-nums}.progress{background:#37364a;height:7px;border-radius:999px;overflow:hidden;margin:14px 0}.bar{background:linear-gradient(90deg,var(--purple),var(--purple2));height:100%;border-radius:999px;transition:width .25s}.hero{padding:24px}.hero-top{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}.step{font-weight:800;font-size:clamp(23px,6vw,32px);line-height:1.2;letter-spacing:-.025em;margin:17px 0 9px}.step-desc{color:#d0ccdf;font-size:15px}.action-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.btn{border:1px solid var(--stroke);background:var(--panel2);border-radius:14px;color:var(--text);padding:12px 15px;font-weight:700;min-height:46px}.btn.primary{background:linear-gradient(120deg,#765de8,#9b79f8);border-color:transparent;color:white;flex:1}.btn.light{background:#292740}.btn.danger{color:#f7b5b5}.muted-btn{background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;padding:5px}.input{background:#222235;border:1px solid #43415b;border-radius:12px;color:var(--text);padding:13px;width:100%;min-width:0}.input::placeholder{color:#9793ad}.form-row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 14px}.form-row .input{flex:1;min-width:150px}.field-label{color:#bebbd4;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.area-row{display:flex;gap:7px;overflow:auto;padding:3px 0 9px;scrollbar-width:thin}.chip{background:#242438;border:1px solid #424057;border-radius:999px;color:#d8d5e9;padding:7px 12px;white-space:nowrap;font-size:13px}.chip.selected{background:#38305e;border-color:#9886fc;color:#fff}.tabs{display:flex;gap:7px;margin:0 0 14px}.tab{flex:1;padding:10px;border:1px solid var(--stroke);background:#1c1c2a;color:#c9c5dd;border-radius:11px;font-size:13px;font-weight:700}.tab.active{background:#342d55;border-color:#9e8cfb;color:#fff}.task{display:flex;gap:12px;align-items:center;border:1px solid var(--stroke);background:#202031;border-radius:13px;padding:12px;margin-top:8px}.task.active{border-color:#9484f7;background:#2b2644}.task-main{border:0;text-align:left;background:transparent;color:var(--text);flex:1;min-width:0;padding:0}.task-title{font-size:15px;font-weight:750;display:block;overflow-wrap:anywhere}.task-info{font-size:12px;color:var(--muted);display:block;margin-top:3px}.task-x{color:var(--muted);background:transparent;border:0;font-size:20px;padding:4px 8px}.empty{padding:30px 14px;text-align:center;color:var(--muted)}.inline-link{color:#d0c4ff;text-decoration:none}.footer{font-size:12px;color:#a7a5bc;line-height:1.6;margin:20px 6px}details{margin-top:14px}summary{color:#c9c1ff;cursor:pointer;font-size:13px}details p{padding-top:9px;font-size:13px}dialog{background:#1d1d2d;border:1px solid #4b4866;border-radius:20px;color:var(--text);width:min(95vw,440px);padding:22px}dialog::backdrop{background:#000a}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:15px}.hidden{display:none!important}.stats{display:flex;gap:10px;justify-content:space-between;margin-bottom:17px}.stat{flex:1;padding:11px 12px;background:#1c1b2b;border:1px solid var(--stroke);border-radius:14px}.stat b{display:block;color:#c3b7ff;font-size:22px}.stat span{font-size:11px;color:var(--muted)}@media(max-width:430px){.wrap{padding:22px 14px 80px}.panel{padding:16px}.hero{padding:19px}.action-row .btn{font-size:14px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+  <div><div class="eyebrow">A calmer way to get things done</div><h1>One Step <span aria-hidden="true">✦</span></h1><p>Not your whole life. Just the next small move.</p></div>
+  <span class="pill">Free · Private</span>
+</header>
+<section class="stats" aria-label="Your progress">
+  <div class="stat"><b id="openCount">0</b><span>Open tasks</span></div>
+  <div class="stat"><b id="doneCount">0</b><span>Completed tasks</span></div>
+  <div class="stat"><b id="stepsCount">0</b><span>Tiny steps done</span></div>
+</section>
+<section class="panel glass hero" aria-live="polite">
+  <div class="hero-top"><span class="eyebrow">YOUR NEXT ACTION</span><span class="pill" id="focusArea">Start here</span></div>
+  <div id="focusContent"><div class="step">You only need one first step.</div><p class="step-desc">Add a task below. We'll turn it into something you can start in two minutes.</p></div>
+  <div id="focusActions" class="action-row hidden">
+    <button class="btn primary" id="doneStep">✓ Done — next step</button>
+    <button class="btn light" id="smallerStep">Make this smaller</button>
+    <button class="btn" id="switchStep">Different task</button>
+  </div>
+</section>
+<section class="panel" aria-labelledby="addTitle">
+  <h2 id="addTitle">What’s on your mind?</h2>
+  <p class="mini">Write one thing, not your entire to-do list.</p>
+  <form id="taskForm">
+    <div class="form-row"><input class="input" id="taskInput" placeholder="e.g. Prepare for an interview" maxlength="250" required autocomplete="off" aria-label="Task to break down" /></div>
+    <div class="field-label">Area of life</div>
+    <div class="area-row" id="areas" role="group" aria-label="Choose area"></div>
+    <div class="form-row">
+      <select class="input" id="when" aria-label="When"><option value="today">Today</option><option value="week">This week</option><option value="later">Later</option></select>
+      <button class="btn primary" type="submit">✦ Break it down</button>
+    </div>
+  </form>
+</section>
+<section class="panel" aria-labelledby="listTitle">
+  <h2 id="listTitle">Your tasks</h2>
+  <div class="tabs" role="tablist" aria-label="Task timeframe">
+    <button class="tab active" data-tab="today" type="button">Today</button>
+    <button class="tab" data-tab="week" type="button">This week</button>
+    <button class="tab" data-tab="later" type="button">Later</button>
+  </div>
+  <div id="taskList"></div>
+  <details><summary>Backup and privacy</summary><p>Tasks are saved only on this device in this browser. They are not uploaded to GitHub or an AI service. If you clear browser storage, they may disappear. Export a backup if you want to keep them.</p>
+    <div class="action-row"><button class="btn" id="exportBtn" type="button">Export backup</button><button class="btn" id="importBtn" type="button">Import backup</button><input id="importFile" class="hidden" type="file" accept="application/json,.json" /></div>
+  </details>
+</section>
+<div class="footer">A simple, no-cost personal task helper. Step suggestions are built in: no AI service, account, subscription or exposed API key required. It's not medical treatment, and it's okay to do less on hard days.</div>
+</main>
+<dialog id="confirmDialog"><h2>Remove task?</h2><p>This deletes the selected task from this device.</p><div class="dialog-actions"><button class="btn" id="cancelDelete">Keep it</button><button class="btn danger" id="confirmDelete">Remove</button></div></dialog>
+<script>
+'use strict';
+const KEY = 'one-step-planner-v1';
+const AREAS = ['Work','Money','Business','Admin','Health','Home & people'];
+let state = loadState();
+let area = 'Work';
+let tab = 'today';
+let pendingDelete = null;
+const $ = id => document.getElementById(id);
+const uid = () => (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+function loadState(){try{let p=JSON.parse(localStorage.getItem(KEY));if(p && Array.isArray(p.tasks))return {tasks:p.tasks,selected:p.selected||null,stepsDone:Number(p.stepsDone)||0};}catch(e){}return {tasks:[],selected:null,stepsDone:0};}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+const step=(title,description,time=3)=>({title,description,time});
+function clean(t){return t.trim().replace(/\s+/g,' ').slice(0,250);}
+function makeSteps(title,category){
+ const text=title.toLowerCase();
+ if(/interview|meeting|presentation|appointment/.test(text))return [
+  step('Check the basics','Open the message with the time, location and contact details.',2),
+  step('Read the role or agenda','Find the three things that matter most for this meeting.',5),
+  step('Pick one strong example','Write down a real situation, what you did and the result.',7),
+  step('Practice your introduction','Say out loud who you are and what you bring, once.',3),
+  step('Prepare to leave','Put your clothes, travel details and essentials in one place.',5)];
+ if(/bill|pay|money|bank|budget|debt|rent|invoice/.test(text)||category==='Money')return [
+  step('Open one account','Open the relevant bill, bank app or email. Nothing else yet.',2),
+  step('Find the exact amount','Write down the amount and due date for this one item.',3),
+  step('Choose one next move','Decide: pay, request more time, dispute or ask for help.',3),
+  step('Take the first action','Make the payment or open the message/call page you need.',5),
+  step('Record the outcome','Save the reference number or note when to follow up.',2)];
+ if(/job|apply|application|resume|cv|cover letter|employment|work/.test(text)&&category==='Work')return [
+  step('Open the opportunity','Open the job advertisement or the email about it.',2),
+  step('Find three requirements','Highlight the three skills they seem to want most.',4),
+  step('Choose one matching example','Recall one specific result from your work experience.',5),
+  step('Do one application piece','Update three CV lines or write one paragraph.',7),
+  step('Submit or save your next move','Finish the smallest remaining part; note any follow-up.',5)];
+ if(/email|message|reply|call|follow up|contact/.test(text))return [
+  step('Find the right conversation','Open the email, message thread or contact.',2),
+  step('Write the purpose','In a note, write one sentence saying what you need.',2),
+  step('Draft three short lines','Say hello, state the request and ask for the next step.',5),
+  step('Check the details','Confirm recipient, names, amount or date if relevant.',2),
+  step('Send it','Send, or save the draft if it needs another look.',2)];
+ if(/clean|laundry|tidy|kitchen|room|home|house|dishes/.test(text)||category==='Home & people')return [
+  step('Choose one small spot','Stand by one area or pick one conversation to start.',2),
+  step('Make the first tiny move','Put away one item or write one friendly sentence.',2),
+  step('Do just five minutes','Work on this one small part, without switching tasks.',5),
+  step('Finish a visible piece','Complete a small section, or agree on one next action.',5),
+  step('Reset and stop','Put things back and decide whether more is needed.',2)];
+ if(/supplier|buyer|trade|sales|business|client|proposal|quote|lead/.test(text)||category==='Business')return [
+  step('Choose one opportunity','Write down one buyer, supplier or commercial question.',2),
+  step('Check the missing information','List product/service, volume, timing and price if applicable.',5),
+  step('Find one reliable detail','Check one document, contact or source to fill a gap.',5),
+  step('Write one outreach message','Ask for the single piece of information you need next.',5),
+  step('Record the next follow-up','Note the status and the next action or date.',2)];
+ if(/walk|gym|exercise|football|sleep|health|doctor|meal|cook/.test(text)||category==='Health')return [
+  step('Make starting easy','Get one thing ready: shoes, water, ingredients or appointment details.',2),
+  step('Choose a tiny target','Pick something realistic to do in the next five minutes.',2),
+  step('Do five minutes','Begin the activity. Five minutes counts.',5),
+  step('Check what you need','Notice whether you need rest, more time or a specific supply.',2),
+  step('Decide what comes next','Stop here or do one more short round.',2)];
+ if(/licen[cs]e|document|form|admin|paper|register|permit/.test(text)||category==='Admin')return [
+  step('Open the relevant page','Find the form, email or official instructions.',2),
+  step('Identify one requirement','Read only the next thing requested of you.',3),
+  step('Gather one item','Find one document, number or detail needed for the task.',4),
+  step('Complete one section','Fill out just one part or make one enquiry.',5),
+  step('Save your progress','Keep a copy and record what remains.',2)];
+ return [
+  step('Name the first visible action',`Open the one page, place or item connected to “${title}”.`,2),
+  step('Locate what you need',`Find one piece of information or one tool needed for “${title}”.`,3),
+  step('Do the smallest useful piece',`Work on just one concrete part of “${title}” for five minutes.`,5),
+  step('Finish that small piece','Complete what you began, or note precisely what blocks it.',5),
+  step('Decide the next move','Write the single next action or stop for now.',2)];
+}
+function escapeHtml(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function remaining(t){return Math.max(0,t.steps.length-t.stepIndex);}
+function unfinished(){return state.tasks.filter(t=>!t.done);}
+function pickTask(){let active=state.tasks.find(t=>t.id===state.selected && !t.done);if(active)return active;active=unfinished().find(t=>t.when==='today')||unfinished()[0];state.selected=active?.id||null;return active;}
+function render(){
+ const tasks=state.tasks,active=pickTask();
+ $('openCount').textContent=unfinished().length;$('doneCount').textContent=tasks.filter(t=>t.done).length;$('stepsCount').textContent=state.stepsDone;
+ if(active){
+  const s=active.steps[active.stepIndex];const pct=Math.round(100*active.stepIndex/active.steps.length);
+  $('focusArea').textContent=active.area;
+  $('focusContent').innerHTML=`<p class="mini" style="margin-top:15px;color:#d0c4ff">${escapeHtml(active.title)}</p><div class="progress" aria-label="${pct}% complete"><div class="bar" style="width:${pct}%"></div></div><p class="mini">Step ${active.stepIndex+1} of ${active.steps.length} · about ${s.time} minutes</p><div class="step">${escapeHtml(s.title)}</div><p class="step-desc">${escapeHtml(s.description)}</p>`;
+  $('focusActions').classList.remove('hidden');
+ }else{
+  $('focusArea').textContent='Start here';$('focusContent').innerHTML='<div class="step">You only need one first step.</div><p class="step-desc">Add a task below. We’ll make the first action small enough to start.</p>';$('focusActions').classList.add('hidden');
+ }
+ document.querySelectorAll('[data-tab]').forEach(el=>{el.classList.toggle('active',el.dataset.tab===tab);el.setAttribute('aria-selected',String(el.dataset.tab===tab));});
+ const filtered=tasks.filter(t=>t.when===tab);
+ $('taskList').innerHTML=filtered.length?filtered.map(t=>`<div class="task ${t.id===state.selected&&!t.done?'active':''}"><button type="button" class="task-main" data-open="${escapeHtml(t.id)}"><span class="task-title">${t.done?'✓ ':''}${escapeHtml(t.title)}</span><span class="task-info">${escapeHtml(t.area)} · ${t.done?'Completed':`${remaining(t)} steps left`}</span></button><button type="button" class="task-x" aria-label="Remove ${escapeHtml(t.title)}" data-delete="${escapeHtml(t.id)}">×</button></div>`).join(''):'<div class="empty">Nothing here yet. That’s okay.</div>';
+ save();
+}
+$('areas').innerHTML=AREAS.map(a=>`<button type="button" class="chip ${a===area?'selected':''}" data-area="${escapeHtml(a)}">${escapeHtml(a)}</button>`).join('');
+$('areas').addEventListener('click',e=>{const b=e.target.closest('[data-area]');if(!b)return;area=b.dataset.area;document.querySelectorAll('[data-area]').forEach(x=>x.classList.toggle('selected',x===b));});
+$('taskForm').addEventListener('submit',e=>{e.preventDefault();const title=clean($('taskInput').value);if(!title)return;const t={id:uid(),title,area,when:$('when').value,steps:makeSteps(title,area),stepIndex:0,done:false};state.tasks.unshift(t);state.selected=t.id;tab=t.when;$('taskInput').value='';render();document.querySelector('.hero').scrollIntoView({behavior:'smooth',block:'start'});});
+$('doneStep').addEventListener('click',()=>{const t=pickTask();if(!t)return;t.stepIndex++;state.stepsDone++;if(t.stepIndex>=t.steps.length){t.done=true;state.selected=null;}render();});
+$('smallerStep').addEventListener('click',()=>{const t=pickTask();if(!t)return;const s=t.steps[t.stepIndex];const smaller=[step('Open what you need',`Open or pick up the one thing needed to: ${s.title.toLowerCase()}.`,1),step('Do one tiny part',s.description,2),step('Confirm that piece is done','Check your progress. You can stop here if needed.',1)];t.steps.splice(t.stepIndex,1,...smaller);render();});
+$('switchStep').addEventListener('click',()=>{const a=unfinished();if(a.length<2){document.querySelector('#taskInput').focus();return;}const i=a.findIndex(t=>t.id===state.selected);state.selected=a[(i+1)%a.length].id;render();});
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;render();}));
+$('taskList').addEventListener('click',e=>{const d=e.target.closest('[data-delete]');if(d){pendingDelete=d.dataset.delete;$('confirmDialog').showModal();return;}const b=e.target.closest('[data-open]');if(b){const t=state.tasks.find(t=>t.id===b.dataset.open);if(t&&!t.done){state.selected=t.id;render();document.querySelector('.hero').scrollIntoView({behavior:'smooth'});}}});
+$('cancelDelete').addEventListener('click',()=>{$('confirmDialog').close();pendingDelete=null;});
+$('confirmDelete').addEventListener('click',()=>{state.tasks=state.tasks.filter(t=>t.id!==pendingDelete);if(state.selected===pendingDelete)state.selected=null;$('confirmDialog').close();pendingDelete=null;render();});
+$('exportBtn').addEventListener('click',()=>{const content=JSON.stringify({version:1,exportedAt:new Date().toISOString(),...state},null,2);const u=URL.createObjectURL(new Blob([content],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='one-step-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),3000);});
+$('importBtn').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.tasks)||data.tasks.length>2000||!data.tasks.every(t=>typeof t.title==='string'&&typeof t.area==='string'&&['today','week','later'].includes(t.when)&&Array.isArray(t.steps)&&Number.isInteger(t.stepIndex)&&t.steps.length>0&&t.steps.length<100&&t.steps.every(s=>typeof s.title==='string'&&typeof s.description==='string'&&typeof s.time==='number')))throw new Error('Invalid backup');state={tasks:data.tasks,selected:null,stepsDone:Number(data.stepsDone)||0};render();alert('Backup restored on this device.');}catch(err){alert('Could not open this backup.');}e.target.value='';});
+render();
+</script>
+</body>
+</html>
